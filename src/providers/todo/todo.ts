@@ -1,4 +1,5 @@
 import { Http } from "@angular/http";
+import { HttpModule } from "@angular/http";
 import { Injectable } from "@angular/core";
 
 /*
@@ -11,7 +12,7 @@ import { Injectable } from "@angular/core";
 export class TodoProvider {
   private todos = [];
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public httpModule: HttpModule) {
     console.log("Hello TodoProvider Provider");
   }
   getTodos() {

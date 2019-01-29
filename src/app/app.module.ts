@@ -8,12 +8,13 @@ import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
 import { HttpModule } from "@angular/http";
 import { TodoProvider } from "../providers/todo/todo";
+import { ArchivedTodosPage } from "../pages/archived-todos/archived-todos";
 
 @NgModule({
-  declarations: [MyApp, HomePage],
+  declarations: [MyApp, HomePage, ArchivedTodosPage],
   imports: [HttpModule, BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage],
+  entryComponents: [MyApp, HomePage, ArchivedTodosPage],
   providers: [
     StatusBar,
     SplashScreen,
