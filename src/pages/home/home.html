@@ -20,10 +20,17 @@
     [reorder]="reorderIsEnabled"
     (ionItemReorder)="ionItemReorder($event)"
   >
-    <ion-item-sliding *ngFor="let todo of todos">
+    <ion-item-sliding *ngFor="let todo of todos; let todoIndex = index">
+      <ion-item-options side="left">
+        <button ion-button (click)="editTodo(todoIndex)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+      </ion-item-options>
+
       <ion-item>{{ todo }}</ion-item>
+
       <ion-item-options side="right">
-        <button color="danger" ion-button>
+        <button color="danger" ion-button (click)="archiveTodo(todoIndex)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
@@ -31,7 +38,7 @@
   </ion-list>
 
   <ion-fab right bottom>
-    <button ion-fab (click)="goToArchivePage()">
+    <button ion-fab [navPush]="archivedTodosPage">
       <ion-icon name="archive"></ion-icon>
     </button>
   </ion-fab>
